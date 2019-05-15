@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg,#24006b,#f42f8c);
+}
+.main-content{
+    width: 100vw;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+.main-content > .product-page{
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 14px;
+}
+
+/* .main-content > .product-page .proitem{
+    line-height: 125px;
+} */
+
+
+
+.main-content > .product-page .protop .proitem{
+    line-height: 120px;
+}

@@ -1,0 +1,37 @@
+.prolist{
+    /* box-sizing: content-box; */
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding: 20px 0;
+    background: rgba(255, 255, 255, 0.1);
+    /* padding: 10px 0; */
+    border-radius: 8px;
+}
+.prolist > .proitem{
+    /* box-sizing: border-box; */
+    width: 100%;
+    list-style-type: none;
+    padding: 10px 25px;
+    padding-right: 0;
+    transition: 0.1s ease;
+}
+.prolist > .proitem:hover{
+    background: rgb(0, 161, 234);
+}
+
+.prolist > .proitem > a{
+    color: #fff;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+.prolist > .proitem:hover > a{
+    color: #fff;
+}
+.prolist > .proitem:nth-child(1){
+    background: #ff6700;
+}

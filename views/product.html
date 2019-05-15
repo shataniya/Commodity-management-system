@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>product</title>
+        <!-- 记得要写成 /css/public/header.css -->
+        <!-- css/public/header.css 前边有个斜杠，说明是相对于根目录的 -->
+        <link rel="stylesheet" href="/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/public/header.css">
+        <link rel="stylesheet" href="/css/public/prolist.css">
+        <link rel="stylesheet" href="/css/product.css">
+        <script src="/js/jquery-3.3.1.min.js"></script>
+        <script src="/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <%- include public/header.html %>
+        <div class="main-content">
+            <%- include public/prolist.html %>
+            <div class="product-page">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">商品管理</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">商品列表</li>
+                    </ol>
+                </nav>
+                <div class="card mb-3" style="width: 100%;">
+                    <div class="card-header">搜索</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" style="display:flex;justify-content:space-between;align-items:center;">
+                            <form class="form-inline" enctype="multipart/form-data" action="/product/search" method="GET">
+                                    名称
+                                <input type="text" class="form-control mx-2" name="name" placeholder="input ProductName">
+                                <input type="submit" class="form-control" value="开始搜索">
+                            </form>
+                            <div>
+                                <a href="/product/previous" class="btn btn-success mr-2">上一页</a>
+                                <a href="/product/next" class="btn btn-danger">下一页</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <table class="table table-light table-striped">
+                    <thead>
+                        <tr>
+                        <th class="text-center" scope="col">编号</th>
+                        <th class="text-center" scope="col">商品名称</th>
+                        <th class="text-center" scope="col">商品图片</th>
+                        <th class="text-center" scope="col">商品价格</th>
+                        <th class="text-center" scope="col">快递邮费</th>
+                        <th class="text-center" scope="col">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% list.map((el,index)=>{ %>
+                            <tr class="protop">
+                                <th class="text-center proitem" scope="row"><%= index+1 %></th>
+                                <td class="text-center proitem"><%= el.proName %></td>
+                                <td class="text-center proitem"><img src="<%= el.proImg %>" alt="<%= el.proName %>"  width="100"  id="proImg"></td>
+                                <td class="text-center proitem"><%= el.procost %></td>
+                                <td class="text-center proitem"><%= el.propostage %></td>
+                                <td class="text-center proitem">
+                                    <!-- <button class="btn btn-success">修改</button> -->
+
+                                    <!-- 思想很重要，为了找到这个商品，应该好好利用商品的唯一标识 _id 这个属性 -->
+                                    <a href="/product/productedit?id=<%= el._id %>" class="btn btn-success">修改</a>
+                                    <!-- <button class="btn btn-primary">删除</button> -->
+                                    <a href="/product/productdelete?id=<%= el._id %>" class="btn btn-primary">删除</a>
+                                </td>
+                            </tr>
+                        <% }) %>
+
+                            
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

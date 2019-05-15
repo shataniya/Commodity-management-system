@@ -1,0 +1,25 @@
+{
+  "name": "product_system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.bac.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^2.0.3",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "md5-node": "^1.0.1",
+    "mongodb": "^3.2.4",
+    "mongoose": "^5.5.7",
+    "multiparty": "^4.2.1",
+    "nodemon": "^1.19.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
